@@ -1,5 +1,5 @@
 // API Configuration
-const API_URL = 'http://localhost:3000/api/tasks';
+const API_URL = 'https://task-manager-server-production-1ebe.up.railway.app/api/tasks';
 
 // Get the elements from HTML
 const taskInput = document.getElementById('taskInput');
