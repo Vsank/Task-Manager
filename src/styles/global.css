@@ -1,0 +1,137 @@
+:root {
+  /* Palette — desert / amber / oud */
+  --ink: #0d0a07;
+  --ink-2: #16110b;
+  --sand-50: #f6efe1;
+  --sand-100: #ece0c9;
+  --sand-200: #d9c39a;
+  --gold: #c9a35b;
+  --gold-soft: #d8bd83;
+  --bronze: #7a5c33;
+  --paper: #f4ede0;
+  --muted: rgba(244, 237, 224, 0.62);
+  --line: rgba(201, 163, 91, 0.22);
+
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  --maxw: 1240px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+/* Shared typographic helpers */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: 0.01em;
+}
+
+.section {
+  position: relative;
+  padding: clamp(6rem, 12vh, 11rem) clamp(1.4rem, 5vw, 5rem);
+}
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  width: 100%;
+}
+
+.lead {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  line-height: 1.5;
+  font-weight: 300;
+  color: var(--sand-50);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  padding: 1.05em 2.4em;
+  border-radius: 999px;
+  border: 1px solid var(--gold);
+  color: var(--ink);
+  background: var(--gold);
+  cursor: pointer;
+  transition: transform 0.5s var(--ease), background 0.5s var(--ease),
+    color 0.5s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--gold-soft);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--paper);
+  border-color: var(--line);
+}
+
+.btn--ghost:hover {
+  background: rgba(201, 163, 91, 0.1);
+  border-color: var(--gold);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
