@@ -8,18 +8,16 @@ export default function Hero() {
     offset: ['start start', 'end start'],
   })
 
-  const videoScale = useTransform(scrollYProgress, [0, 1], [1, 1.18])
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '12%'])
-  const contentY = useTransform(scrollYProgress, [0, 1], ['0%', '-40%'])
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0])
-  const overlayOpacity = useTransform(scrollYProgress, [0, 1], [0.55, 0.9])
+  const frameY = useTransform(scrollYProgress, [0, 1], ['0%', '-14%'])
+  const frameScale = useTransform(scrollYProgress, [0, 1], [1, 0.94])
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
 
   const container = {
     hidden: {},
-    show: { transition: { staggerChildren: 0.16, delayChildren: 0.5 } },
+    show: { transition: { staggerChildren: 0.13, delayChildren: 0.4 } },
   }
   const rise = {
-    hidden: { y: 40, opacity: 0 },
+    hidden: { y: 34, opacity: 0 },
     show: {
       y: 0,
       opacity: 1,
@@ -29,24 +27,11 @@ export default function Hero() {
 
   return (
     <section id="top" className="hero" ref={ref}>
-      <motion.div className="hero__media" style={{ scale: videoScale, y: videoY }}>
-        <video
-          className="hero__video"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          poster=""
-        >
-          <source src="/media/perfume-hero.mp4" type="video/mp4" />
-        </video>
-      </motion.div>
-      <motion.div className="hero__overlay" style={{ opacity: overlayOpacity }} />
+      <div className="hero__ambient" aria-hidden />
 
       <motion.div
         className="hero__content container"
-        style={{ y: contentY, opacity: contentOpacity }}
+        style={{ opacity: contentOpacity }}
         variants={container}
         initial="hidden"
         animate="show"
@@ -54,19 +39,40 @@ export default function Hero() {
         <motion.span className="eyebrow" variants={rise}>
           Maison Sable · Eau de Parfum
         </motion.span>
+
         <motion.h1 className="hero__title display" variants={rise}>
           MIRAGE
         </motion.h1>
+
+        <motion.div
+          className="hero__frame"
+          variants={rise}
+          style={{ y: frameY, scale: frameScale }}
+        >
+          <video
+            className="hero__video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+          >
+            <source src="/media/perfume-hero.mp4" type="video/mp4" />
+          </video>
+          <span className="hero__frame-glow" aria-hidden />
+        </motion.div>
+
         <motion.p className="hero__tagline" variants={rise}>
-          Where light meets sand. An amber oud drawn from the stillness of the
+          Where light meets sand — an amber oud drawn from the stillness of the
           desert at dusk.
         </motion.p>
+
         <motion.div className="hero__actions" variants={rise}>
-          <a href="#cta" className="btn">
-            Discover the Scent
+          <a href="#spotlight" className="btn">
+            Shop MIRAGE — $240
           </a>
           <a href="#reveal" className="btn btn--ghost">
-            Watch it Rise
+            Experience the Scent
           </a>
         </motion.div>
       </motion.div>

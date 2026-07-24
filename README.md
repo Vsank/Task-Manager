@@ -7,8 +7,9 @@ rising from the sand.
 
 ## Highlights
 
-- **Cinematic hero** — full-bleed product video with scroll-driven parallax
-  and a gradient wordmark.
+- **Cinematic hero** — the product film shown full and uncropped in a 16:9
+  frame with a gradient wordmark and scroll parallax.
+- **Press strip** — an auto-scrolling "as featured in" marquee.
 - **Scroll-scrubbed reveal** — a pinned, sticky video whose playback is
   scrubbed frame-by-frame by the scroll position, with captions that cross-fade
   through the fragrance's three movements (opening → heart → drydown).
@@ -17,8 +18,15 @@ rising from the sand.
 - **Craft story** — a split layout with parallax video, an ingredient glow, and
   animated stats.
 - **The ritual** — how to wear the fragrance, in three steps.
-- **Acquire CTA** — pricing, purchase actions, and a full footer with newsletter
-  signup.
+- **The Collection** — six shoppable products (four fragrances, a discovery set
+  and a candle) rendered as crisp SVG flacons, each with notes, rating, price,
+  and add-to-bag.
+- **Product spotlight** — an interactive MIRAGE "product page" with size
+  selection, gift-wrap upsell, live total, and purchase action.
+- **Reviews** — aggregate rating stats and verified customer testimonials.
+- **Working cart** — a lightweight bag with a live count in the nav and an
+  "added to bag" toast, driven by a small React context.
+- **Acquire CTA** and a full footer with newsletter signup.
 
 ## Design
 

@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { useCart } from '../context/CartContext.jsx'
 
 const links = [
   { label: 'The Scent', href: '#reveal' },
   { label: 'Notes', href: '#notes' },
-  { label: 'Craft', href: '#craft' },
-  { label: 'Ritual', href: '#ritual' },
+  { label: 'Collection', href: '#collection' },
+  { label: 'Reviews', href: '#reviews' },
 ]
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
+  const { count } = useCart()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -36,8 +38,23 @@ export default function Navbar() {
             </a>
           ))}
         </nav>
-        <a href="#cta" className="nav__cta">
-          Acquire
+        <a href="#collection" className="nav__bag" aria-label="Shopping bag">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden>
+            <path
+              d="M6 8h12l-1 12H7L6 8z"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+            />
+            <path
+              d="M9 8V6.5a3 3 0 0 1 6 0V8"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.4"
+            />
+          </svg>
+          <span className="nav__bag-label">Bag</span>
+          {count > 0 && <span className="nav__bag-count">{count}</span>}
         </a>
       </div>
     </motion.header>
